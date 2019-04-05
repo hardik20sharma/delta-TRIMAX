@@ -1,33 +1,34 @@
 #include<iostream>
-using namespace std;
 #include<fstream>
 #include<vector>
+#include<string>
+#include<ctype.h>
+using namespace std;
 
 int main()
 {
-	char ch;
+	int n;
 	
 	// Vector for Genes
 	ifstream fin("gene_ind_tricl_1", ios::in);
 	if(!fin)
 		{	cout << "Error opening file !"; exit(0); }
 	
-	vector<char> gene;
+	vector<int> gene;
 	
-	while(fin >> ch)
-		gene.push_back(ch);
+	while(fin >> n)	// Reading gene file
+		gene.push_back(n);
     fin.close();
-    
     
 	// Vector for Sample
 	fin.open("samp_ind_tricl_1", ios::in);
 	if(!fin)
 		{	cout << "Error opening file !"; exit(0); }
 	
-	vector<char> samp;
+	vector<int> samp;
 	
-	while(fin >> ch)
-		samp.push_back(ch);
+	while(fin >> n)
+		samp.push_back(n);
     fin.close();
     
     
@@ -36,23 +37,9 @@ int main()
 	if(!fin)
 		{ cout << "Error opening file !"; exit(0); }
 	
-	vector<char> time;
+	vector<int> time;
 	
-	while(fin >> ch)
-		time.push_back(ch);
+	while(fin >> n)
+		time.push_back(n);
     fin.close();
-    
-    // 3D Vector for tricluster
-    vector< vector< vector<char> > > tricluster;
-    
-	for(int k=0; k<time.size(); k++)
-	{
-		for(int j=0; j<samp.size(); j++)
-		{
-			for(int i=0; i<gene.size(); i++)
-			{
-						
-			}
-		}
-	}
 }
